@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "673913634987",
+    "project_id": "newone-67f36",
+    "storage_bucket": "newone-67f36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673913634987:android:5c5d2ebce3dc2aaadcf7ee",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673913634987-mj0k5gj2fsbiqvlac5b73ccd67b0eo64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvxEzn8ARC6Ti-427Tzxg4IJDEN2tmv6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673913634987-mj0k5gj2fsbiqvlac5b73ccd67b0eo64.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "673913634987-ei3dj9oni4191nc8vufb6qh54kbi2bgi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.newtwo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673913634987:android:f15d483bbd30ebeedcf7ee",
+        "android_client_info": {
+          "package_name": "com.example.englishlessons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673913634987-mj0k5gj2fsbiqvlac5b73ccd67b0eo64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvxEzn8ARC6Ti-427Tzxg4IJDEN2tmv6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673913634987-mj0k5gj2fsbiqvlac5b73ccd67b0eo64.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "673913634987-ei3dj9oni4191nc8vufb6qh54kbi2bgi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.newtwo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
