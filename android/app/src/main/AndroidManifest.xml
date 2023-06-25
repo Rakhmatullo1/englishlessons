@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.englishlessons">
    <application
-        android:label="englishlessons"
+        android:label="Theoretical phonetics"
         android:name="${applicationName}"
         android:icon="@mipmap/icon">
         <activity
