@@ -42,7 +42,11 @@ class _AddingVideoWidgetState extends State<AddingVideoWidget> {
         setState(() {});
       })
       ..setLooping(false)
-      ..initialize().then((value) => videoPlayer!.pause());
+      ..initialize().then((value) {
+        videoPlayer!.pause();
+        print(videoPlayer!.value.duration.inMinutes);
+      });
+    
     widget.takeVideo(savedVideo, videoPlayer!.value.duration.inMinutes);
   }
 

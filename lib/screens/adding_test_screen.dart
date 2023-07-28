@@ -64,6 +64,7 @@ class _AddingTestScreenState extends State<AddingTestScreen>
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
+    
     if (!messOne) {
       setState(() {
         isLoading = true;
@@ -115,58 +116,60 @@ class _AddingTestScreenState extends State<AddingTestScreen>
       fieldsone.add(FieldsClassOne(
           TestsContainer(
             index: fieldsone.length,
-            child: Column(
-              children: [
-                Form(
-                    child: TextFormField(
-                  controller: controllers.last.child,
-                  decoration: const InputDecoration(label: Text("Question")),
-                )),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AnswerWidget(
-                      'Answer 1',
-                      controllersOne[index - 3].child,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    AnswerWidget(
-                      'Answer 2',
-                      controllersOne[index - 2].child,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AnswerWidget(
-                      'Answer 3',
-                      controllersOne[index - 1].child,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    AnswerWidget(
-                      'Answer 4',
-                      controllersOne.last.child,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                  ],
-                )
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Form(
+                      child: TextFormField(
+                    controller: controllers.last.child,
+                    decoration: const InputDecoration(label: Text("Question")),
+                  )),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AnswerWidget(
+                        'Answer 1',
+                        controllersOne[index - 3].child,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      AnswerWidget(
+                        'Answer 2',
+                        controllersOne[index - 2].child,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AnswerWidget(
+                        'Answer 3',
+                        controllersOne[index - 1].child,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      AnswerWidget(
+                        'Answer 4',
+                        controllersOne.last.child,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           fieldsone.length,
@@ -191,58 +194,60 @@ class _AddingTestScreenState extends State<AddingTestScreen>
     setState(() {
       fieldsone[i].child = TestsContainer(
           index: i,
-          child: Column(
-            children: [
-              Text(
-                controllers[i].child.text,
-                style:
-                    const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-              ),
-              for (int j = 0; j < 4; j++)
-                Column(
-                  children: [
-                    Container(
-                        width: double.infinity,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              width: 1,
-                              color: fieldsone[i].correctOne ==
-                                      controllersOne[4 * i + j].child.text
-                                  ? Colors.green.shade400
-                                  : Colors.grey.shade300,
-                            )),
-                        child: TextButton(
-                          style: ButtonStyle(
-                            overlayColor: MaterialStateProperty.all(
-                                fieldsone[i].correctOne ==
-                                        controllersOne[4 * i + j].child.text
-                                    ? Colors.green.shade100
-                                    : Colors.amber.shade100),
-                            shape: MaterialStateProperty.all<OutlinedBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                          ),
-                          child: Text(
-                            controllersOne[4 * i + j].child.text,
-                            style: TextStyle(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  controllers[i].child.text,
+                  style:
+                      const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+                for (int j = 0; j < 4; j++)
+                  Column(
+                    children: [
+                      Container(
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                width: 1,
                                 color: fieldsone[i].correctOne ==
                                         controllersOne[4 * i + j].child.text
                                     ? Colors.green.shade400
-                                    : Colors.amber),
-                          ),
-                          onPressed: () {
-                            chooseCorrectOne(
-                                controllersOne[4 * i + j].child.text, i, j);
-                          },
-                        )),
-                    const SizedBox(
-                      height: 5,
-                    )
-                  ],
-                ),
-            ],
+                                    : Colors.grey.shade300,
+                              )),
+                          child: TextButton(
+                            style: ButtonStyle(
+                              overlayColor: MaterialStateProperty.all(
+                                  fieldsone[i].correctOne ==
+                                          controllersOne[4 * i + j].child.text
+                                      ? Colors.green.shade100
+                                      : Colors.amber.shade100),
+                              shape: MaterialStateProperty.all<OutlinedBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20))),
+                            ),
+                            child: Text(
+                              controllersOne[4 * i + j].child.text,
+                              style: TextStyle(
+                                  color: fieldsone[i].correctOne ==
+                                          controllersOne[4 * i + j].child.text
+                                      ? Colors.green.shade400
+                                      : Colors.amber),
+                            ),
+                            onPressed: () {
+                              chooseCorrectOne(
+                                  controllersOne[4 * i + j].child.text, i, j);
+                            },
+                          )),
+                      const SizedBox(
+                        height: 5,
+                      )
+                    ],
+                  ),
+              ],
+            ),
           ));
     });
   }
@@ -362,90 +367,92 @@ class _AddingTestScreenState extends State<AddingTestScreen>
               child: Padding(
                 padding: const EdgeInsetsDirectional.symmetric(
                     horizontal: 15, vertical: 20),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 20),
-                    StreamBuilder<QuerySnapshot>(
-                        stream: FirebaseFirestore.instance
-                            .collection('lessons')
-                            .orderBy("createdAt")
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            final data = snapshot.data!.docs;
-                            List<String> list = [];
-                            for (int i = 0; i < data.length; i++) {
-                              list.add(
-                                data[i]['title'],
-                              );
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection('lessons')
+                              // .orderBy("createdAt")
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              final data = snapshot.data!.docs;
+                              List<String> list = [];
+                              for (int i = 0; i < data.length; i++) {
+                                list.add(
+                                  data[i]['title'],
+                                );
+                              }
+                              dropdownValue ??= list.first;
+                
+                              return StatefulBuilder(builder:
+                                  (BuildContext context, StateSetter setState) {
+                                return DropdownButton<String>(
+                                  value: dropdownValue,
+                                  icon: const Icon(Icons.arrow_downward),
+                                  elevation: 16,
+                                  style: const TextStyle(color: Colors.amber),
+                                  underline: Container(
+                                    height: 2,
+                                    color: Colors.amber,
+                                  ),
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      dropdownValue = value!;
+                                    });
+                                  },
+                                  items: list.map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                );
+                              });
                             }
-                            dropdownValue ??= list.first;
-
-                            return StatefulBuilder(builder:
-                                (BuildContext context, StateSetter setState) {
-                              return DropdownButton<String>(
-                                value: dropdownValue,
-                                icon: const Icon(Icons.arrow_downward),
-                                elevation: 16,
-                                style: const TextStyle(color: Colors.amber),
-                                underline: Container(
-                                  height: 2,
-                                  color: Colors.amber,
-                                ),
-                                onChanged: (String? value) {
-                                  setState(() {
-                                    dropdownValue = value!;
-                                  });
-                                },
-                                items: list.map<DropdownMenuItem<String>>(
-                                    (String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(value),
-                                  );
-                                }).toList(),
-                              );
-                            });
-                          }
-                          return Container(
-                            color: Colors.white,
-                            height: 40,
-                            child: const CircularProgressIndicator(),
-                          );
-                        }),
-                    const SizedBox(height: 20),
-                    AnimatedContainer(
-                        duration: const Duration(milliseconds: 300),
-                        height: height,
-                        curve: Curves.easeIn,
-                        child: ListView(
-                            children: secondView
-                                ? fieldsone.map((e) => e.child).toList()
-                                : fieldsone.map((e) => e.child).toList())),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.amber),
-                            fixedSize: MaterialStateProperty.all<Size>(
-                                const Size(double.infinity, 250)),
-                            shape: MaterialStateProperty.all<OutlinedBorder>(
-                                RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ))),
-                        onPressed: addFormField,
-                        label: const Text(
-                          "One more test",
-                          style: TextStyle(
-                              fontSize: 20,
+                            return Container(
                               color: Colors.white,
-                              fontWeight: FontWeight.w700),
+                              height: 40,
+                              child: const Text('Not Lessons'),
+                            );
+                          }),
+                      const SizedBox(height: 20),
+                      AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          height: height,
+                          curve: Curves.easeIn,
+                          child: ListView(
+                              children: secondView
+                                  ? fieldsone.map((e) => e.child).toList()
+                                  : fieldsone.map((e) => e.child).toList())),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton.icon(
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.amber),
+                              fixedSize: MaterialStateProperty.all<Size>(
+                                  const Size(double.infinity, 250)),
+                              shape: MaterialStateProperty.all<OutlinedBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ))),
+                          onPressed: addFormField,
+                          label: const Text(
+                            "One more test",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          icon: const Icon(Icons.add, color: Colors.white),
                         ),
-                        icon: const Icon(Icons.add, color: Colors.white),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

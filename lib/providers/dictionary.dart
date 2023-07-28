@@ -40,7 +40,6 @@ class DictionaryProvider with ChangeNotifier {
 
     try {
       final response = await http.get(url);
-      print(response.body);
 
       final Map<String, dynamic>? dictionary = await json.decode(response.body);
       if (!dictionary!["def"].isEmpty) {

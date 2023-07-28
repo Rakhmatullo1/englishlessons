@@ -12,19 +12,19 @@ class GlossariesScreen extends StatefulWidget {
 class _GlossariesScreenState extends State<GlossariesScreen> {
   void tappingButton(String def) {
     showDialog(
+      
         context: context,
         builder: ((context) {
-          return Dialog(
-            child: SizedBox(
+          return AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            content: SizedBox(
               child: SizedBox(
                   height: 200,
                   width: MediaQuery.of(context).size.width * 0.4,
                   child: SingleChildScrollView(
                       child: Column(
                     children: [
-                      const SizedBox(
-                        height: 50,
-                      ),
+                      
                       Text(def),
                     ],
                   ))),

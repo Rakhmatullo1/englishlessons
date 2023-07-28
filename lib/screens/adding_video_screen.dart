@@ -43,6 +43,7 @@ class _AddingVideoState extends State<AddingVideo> {
   void takeImage(File pickedVideo, int duration) {
     _pickedVideo = pickedVideo;
     this.duration = duration;
+    print(this.duration);
   }
 
   @override
@@ -140,17 +141,19 @@ class _AddingVideoState extends State<AddingVideo> {
           isLoading = false;
           isLoadingone = true;
         });
-        final ref =
-            FirebaseStorage.instance.ref().child('video').child(value.id);
+        final ref = FirebaseStorage.instance
+            .ref()
+            .child('video')
+            .child('${value.id}-${titleController.text.trim()}');
         await ref.putFile(_pickedVideo!);
         final url = await ref.getDownloadURL();
         await FirebaseFirestore.instance
             .collection('lessons')
             .doc(value.id)
             .update({
-          'video_url': url,
+          'video_url': '${url}.mp4',
           'title': titleController.text.trim(),
-          'headerText': headerCont.text.trim(), 
+          'headerText': headerCont.text.trim(),
           'text': text,
           'createdAt': DateTime.now().toIso8601String(),
           'Editor': 'Guli Ergasheva Ismailovna',
@@ -254,7 +257,8 @@ class _AddingVideoState extends State<AddingVideo> {
                                         onFieldSubmitted: (value) {
                                           text = value;
                                         },
-                                        textInputAction: TextInputAction.done,
+                                        keyboardType: TextInputType.multiline,
+                                        // textInputAction: TextInputAction.done,
                                         decoration: InputDecoration(
                                             labelStyle:
                                                 const TextStyle(fontSize: 30),
@@ -403,9 +407,9 @@ class _AddingVideoState extends State<AddingVideo> {
                             if (value!.isEmpty) {
                               return 'Please, Fill the form ';
                             }
-                            if (!value.contains(".")) {
-                              return 'Please, enter whole word';
-                            }
+                            // if (!value.contains(".")) {
+                            //   return 'Please, enter whole word';
+                            // }
                             if (!textController.text.contains(value.trim())) {
                               return 'The text does not contain the sentence';
                             }
@@ -522,6 +526,9 @@ class _AddingVideoState extends State<AddingVideo> {
   bool isLoading1 = false;
 
   void _submit(String part, String section) async {
+    text = textController.text;
+    print(text);
+    print(part);
     if (text!.contains(part)) {
       setState(() {
         isLoading1 = true;

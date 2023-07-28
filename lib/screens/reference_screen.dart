@@ -52,7 +52,6 @@ class _RefScreenState extends State<RefScreen> {
                               itemCount: data.length,
                               itemBuilder: (context, i) {
                                 return SizedBox(
-                                  height: 100,
                                   width: double.infinity,
                                   child: Column(
                                     crossAxisAlignment:

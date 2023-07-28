@@ -127,165 +127,169 @@ class _MainOverviewState extends State<MainOverview> {
                               height: MediaQuery.of(context).size.height * 0.6,
                               padding: const EdgeInsets.only(
                                   left: 40, right: 40, top: 4),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 5,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            width: 1,
-                                            color: Colors.grey.shade100),
-                                        borderRadius: BorderRadius.circular(3),
-                                        color: Colors.grey.shade500),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 8.0),
-                                        child: Text(
-                                          text,
-                                          style: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 40),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 5,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 1,
+                                              color: Colors.grey.shade100),
+                                          borderRadius: BorderRadius.circular(3),
+                                          color: Colors.grey.shade500),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(bottom: 8.0),
+                                          child: Text(
+                                            text,
+                                            style: const TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 40),
+                                          ),
                                         ),
-                                      ),
-                                      Text(definition)
-                                    ],
-                                  )
-                                ],
+                                        Text(definition)
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ))
                           : Container(
                               height: MediaQuery.of(context).size.height * 0.6,
                               padding: const EdgeInsets.only(
                                   left: 40, right: 40, top: 4),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 5,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            width: 1,
-                                            color: Colors.grey.shade100),
-                                        borderRadius: BorderRadius.circular(3),
-                                        color: Colors.grey.shade500),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 15),
-                                        child: SizedBox(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width -
-                                                145,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          bottom: 8.0),
-                                                  child: Text(
-                                                    text,
-                                                    style: const TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 20),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 5,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 1,
+                                              color: Colors.grey.shade100),
+                                          borderRadius: BorderRadius.circular(3),
+                                          color: Colors.grey.shade500),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 15),
+                                          child: SizedBox(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width -
+                                                  145,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            bottom: 8.0),
+                                                    child: Text(
+                                                      text,
+                                                      style: const TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 20),
+                                                    ),
                                                   ),
-                                                ),
-                                                Text(
-                                                  "[$phoneticSpelling]",
-                                                  style: TextStyle(
-                                                      color:
-                                                          Colors.grey.shade300,
-                                                      fontSize: 14),
-                                                ),
-                                                SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.4,
-                                                  child: ListView.builder(
-                                                      itemCount: data.length,
-                                                      itemBuilder:
-                                                          (context, index) =>
-                                                              Column(
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    data["$index"]!
-                                                                        .lexicalCategory,
-                                                                    style: const TextStyle(
-                                                                        fontSize:
-                                                                            14),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    height: 400 /
-                                                                        (index +
-                                                                            1),
-                                                                    child: ListView
-                                                                        .builder(
-                                                                      itemCount: data[
-                                                                              "$index"]!
-                                                                          .definition
-                                                                          .length,
-                                                                      itemBuilder:
-                                                                          (context, i) =>
-                                                                              SizedBox(
-                                                                        height:
-                                                                            100,
-                                                                        child:
-                                                                            Column(
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children: [
-                                                                            Expanded(
-                                                                              flex: 2,
-                                                                              child: Padding(
-                                                                                padding: const EdgeInsets.only(top: 5.0, left: 14),
-                                                                                child: Text("${i + 1}. ${data["$index"]!.definition[i].definition}", style: const TextStyle(fontSize: 20)),
+                                                  Text(
+                                                    "[$phoneticSpelling]",
+                                                    style: TextStyle(
+                                                        color:
+                                                            Colors.grey.shade300,
+                                                        fontSize: 14),
+                                                  ),
+                                                  SizedBox(
+                                                    height: MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        0.4,
+                                                    child: ListView.builder(
+                                                        itemCount: data.length,
+                                                        itemBuilder:
+                                                            (context, index) =>
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      data["$index"]!
+                                                                          .lexicalCategory,
+                                                                      style: const TextStyle(
+                                                                          fontSize:
+                                                                              14),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      height: 400 /
+                                                                          (index +
+                                                                              1),
+                                                                      child: ListView
+                                                                          .builder(
+                                                                        itemCount: data[
+                                                                                "$index"]!
+                                                                            .definition
+                                                                            .length,
+                                                                        itemBuilder:
+                                                                            (context, i) =>
+                                                                                SizedBox(
+                                                                          height:
+                                                                              100,
+                                                                          child:
+                                                                              Column(
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              Expanded(
+                                                                                flex: 2,
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsets.only(top: 5.0, left: 14),
+                                                                                  child: Text("${i + 1}. ${data["$index"]!.definition[i].definition}", style: const TextStyle(fontSize: 20)),
+                                                                                ),
                                                                               ),
-                                                                            ),
-                                                                            Expanded(
-                                                                                flex: 3,
-                                                                                child: ListView.builder(
-                                                                                    itemCount: data["$index"]!.definition[i].syn.length,
-                                                                                    itemBuilder: (context, j) {
-                                                                                      return Text(
-                                                                                        "* ${data["$index"]!.definition[i].syn[j]}",
-                                                                                        style: TextStyle(color: Colors.grey[500]),
-                                                                                      );
-                                                                                    }))
-                                                                          ],
+                                                                              Expanded(
+                                                                                  flex: 3,
+                                                                                  child: ListView.builder(
+                                                                                      itemCount: data["$index"]!.definition[i].syn.length,
+                                                                                      itemBuilder: (context, j) {
+                                                                                        return Text(
+                                                                                          "* ${data["$index"]!.definition[i].syn[j]}",
+                                                                                          style: TextStyle(color: Colors.grey[500]),
+                                                                                        );
+                                                                                      }))
+                                                                            ],
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                ],
-                                                              )),
-                                                ),
-                                              ],
-                                            )),
-                                      )
-                                    ],
-                                  ),
-                                ],
+                                                                  ],
+                                                                )),
+                                                  ),
+                                                ],
+                                              )),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             )),
             )));
@@ -342,38 +346,40 @@ class _MainOverviewState extends State<MainOverview> {
                                 MediaQuery.of(context).size.height * 0.6),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 5,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            width: 1,
-                                            color: Colors.grey.shade100),
-                                        borderRadius: BorderRadius.circular(3),
-                                        color: Colors.grey.shade500),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                "Text: ${word[i]}",
-                                style: const TextStyle(fontSize: 24),
-                              ),
-                              const SizedBox(height: 20),
-                              Text(
-                                "Reference: ${widget.refData.firstWhere((element) => element.title.trim() == word[i].trim()).ref}",
-                                style: TextStyle(
-                                    color: Colors.grey.shade500, fontSize: 18),
-                              )
-                            ],
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 5,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 1,
+                                              color: Colors.grey.shade100),
+                                          borderRadius: BorderRadius.circular(3),
+                                          color: Colors.grey.shade500),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Text: ${word[i]}",
+                                  style: const TextStyle(fontSize: 24),
+                                ),
+                                const SizedBox(height: 20),
+                                Text(
+                                  "Reference: ${widget.refData.firstWhere((element) => element.title.trim() == word[i].trim()).ref}",
+                                  style: TextStyle(
+                                      color: Colors.grey.shade500, fontSize: 18),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       );
