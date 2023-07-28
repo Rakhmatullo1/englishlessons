@@ -234,7 +234,7 @@ class OptionsWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => onClickedOption(option),
       child: Container(
-        height: 50,
+        
         padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
@@ -244,12 +244,15 @@ class OptionsWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              option.text,
-              style: const TextStyle(
-                  fontSize: 20, color: Color.fromRGBO(15, 40, 81, 1)),
+            Expanded(
+              flex: 9,
+              child: Text(
+                option.text,
+                style: const TextStyle(
+                    fontSize: 20, color: Color.fromRGBO(15, 40, 81, 1)),
+              ),
             ),
-            getIconFroOption(option, question)
+            Expanded(child: getIconFroOption(option, question))
           ],
         ),
       ),

@@ -151,7 +151,7 @@ class _AddingVideoState extends State<AddingVideo> {
             .collection('lessons')
             .doc(value.id)
             .update({
-          'video_url': '${url}.mp4',
+          'video_url': '$url.mp4',
           'title': titleController.text.trim(),
           'headerText': headerCont.text.trim(),
           'text': text,

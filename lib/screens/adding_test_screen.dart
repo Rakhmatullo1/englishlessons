@@ -64,17 +64,18 @@ class _AddingTestScreenState extends State<AddingTestScreen>
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
-    
+
     if (!messOne) {
       setState(() {
         isLoading = true;
       });
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-              email: 'omonovrahmatullo9@gmail.com', password: '123456')
-          .then((value) async {
-        try {
-          for (int i = 0; i < fieldsone.length; i++) {
+
+      try {
+        for (int i = 0; i < fieldsone.length; i++) {
+          await FirebaseAuth.instance
+              .signInWithEmailAndPassword(
+                  email: 'omonovrahmatullo9@gmail.com', password: '123456')
+              .then((value) async {
             await FirebaseFirestore.instance.collection('test').add({
               'question': controllers[i].child.text.trim(),
               'answerOne': controllersOne[4 * i + 0].child.text.trim(),
@@ -84,20 +85,21 @@ class _AddingTestScreenState extends State<AddingTestScreen>
               'correctAnswer': fieldsone[i].correctOne.trim(),
               'section': dropdownValue,
             });
-          }
-        } catch (error) {
-          SnackBar snackBar = SnackBar(
-            content: Text('Something went wrong, try again $error'),
-            backgroundColor: Theme.of(context).colorScheme.error,
-          );
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        } finally {
-          setState(() {
-            isLoading = false;
           });
-          Navigator.of(context).pushNamed('/');
         }
-      });
+      } catch (error) {
+        SnackBar snackBar = SnackBar(
+          content: Text('Something went wrong, try again $error'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      } finally {
+        setState(() {
+          isLoading = false;
+        });
+        Navigator.of(context).pop();
+      }
+      ;
     }
   }
 
@@ -197,10 +199,10 @@ class _AddingTestScreenState extends State<AddingTestScreen>
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(
+                AutoSizeText(
                   controllers[i].child.text,
-                  style:
-                      const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 for (int j = 0; j < 4; j++)
                   Column(
@@ -280,18 +282,17 @@ class _AddingTestScreenState extends State<AddingTestScreen>
               child: Column(
                 children: [
                   SizedBox(
-                    height: 
-                    48,
+                    height: 48,
                     width: double.infinity,
                     child: AutoSizeText(
-                      
                       controllers[i].child.text,
                       style: const TextStyle(
-                      
                           fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   for (int j = 0; j < 4; j++)
                     Column(
                       children: [
@@ -386,7 +387,7 @@ class _AddingTestScreenState extends State<AddingTestScreen>
                                 );
                               }
                               dropdownValue ??= list.first;
-                
+
                               return StatefulBuilder(builder:
                                   (BuildContext context, StateSetter setState) {
                                 return DropdownButton<String>(
